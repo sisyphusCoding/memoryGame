@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;500&display=swap");
 body {
   background: #3b5897;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
