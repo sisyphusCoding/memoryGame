@@ -1,0 +1,193 @@
+$backgroundColor: hsl(221, 44%, 41%)
+$topShadow: 		hsl(221, 44%, 39%)
+$bottomShadow: 	hsl(220, 44%, 44%)
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;500&display=swap')
+
+body 
+	background: $backgroundColor
+	display: flex
+	align-items: center
+	justify-content: center
+	min-height: 100vh
+	flex-direction: column
+	row-gap: 2vh
+	
+*
+	box-sizing: border-box
+	-moz-osx-font-smooth: grayscale
+	-webkit-user-select: none
+	-webkit-touch-callout: none
+	-webkit-tap-highlight-color: transparent
+	font-family: 'Montserrat Alternates', sans-serif
+	text-decoration: none
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+
+
+@mixin neo 
+	border-radius: 10px
+	background: $backgroundColor
+	box-shadow: 9px 9px 20px $topShadow , -9px -9px 20px $bottomShadow
+	
+@mixin neo-1
+	border-radius: 1vh
+	background: $backgroundColor
+	box-shadow: $topShadow 0px 2px 4px, $topShadow 0px 7px 13px -3px, $topShadow 0px -3px 0px inset , $topShadow -3px 0px 0px inset , $topShadow 3px 0px 0px inset , $topShadow 0px 3px 0px inset
+	
+.restart
+	height: fit-content
+	width: fit-content
+	padding: 1vh
+	@include neo-1
+	color: #c0c0c0
+	cursor: pointer
+	font-size: 2vh
+	transition: 0.6s ease
+	&:hover
+		transform: scale(0.96)
+		transition: 0.6s ease
+	
+
+.frame
+	@include neo
+	margin-top: -5vh
+	height: fit-content
+	width: fit-content
+	padding: 1vh
+	overflow: hidden
+	display: grid
+	place-items: center
+	#grid
+		display: grid
+		place-items: center
+		grid-template-rows: repeat(4, 1fr)
+		grid-template-columns: repeat(4, 1fr)
+		height: fit-content
+		width: fit-content
+		padding: 1vh
+		perspective: 1000vh
+		.card
+			transform: rotateY(0deg) translate3d(0,0,0)
+		.flip
+			transform: rotateY(180deg) translate3d(0,0,0) 
+			transition: all 0.8s ease 
+		.card
+			height: 11vh
+			width: 10vh
+			margin: 1.5vh
+			transform-style: preserve-3d
+			background: hsl(240, 35%, 31%)
+			text-align: center
+			display: inline-block
+			vertical-align: middle		
+			line-height: 155px
+			border-radius: 10px
+			transition: 0.8s ease
+			box-shadow:  0px 0px 1vh hsl(240, 35%, 31%)
+			cursor: pointer
+			transition: 0.8s ease
+			> *
+				position: absolute
+				-webkit-backface-visibility: hidden
+				backface-visibility: hidden
+				height: 11vh
+				width: 10vh
+				transform-style: preserve-3d
+				i
+					transform-style: preserve-3d
+					transition: all 0.8s ease
+					font-size: 7.5vh
+					color: #caf0fe
+					position: absolute
+					display: inline-block
+					width: 100%
+					top: 17%
+					left: 0.6%
+					border: 0px solid white
+					transform: translate3d(0,0,5vh)
+					
+			.front
+				z-index: 2
+				transform: rotateY(0deg)
+				
+			
+			.back 
+				z-index: 4
+				transform: rotateY(180deg)
+				
+footer
+	bottom: 0.5vh
+	position: absolute
+	color: #c0c0c0
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: space-between
+	border: 0 solid #fff
+	height: fit-content
+	width: fit-content
+	padding-top: 0.2vh
+	padding-bottom: 0.2vh
+	
+	> *
+		border: 0 solid #fff
+		font-size: 1.5vh
+	.fas
+		color: #d95000
+		animation: beat 0.5s ease-out alternate infinite
+		@keyframes beat
+			from
+				transform: scale(1)
+			to
+				transform: scale(1.15)
+	.logo
+		color: #d6d6d6
+		&:hover
+			transform: scale(1.15)
+			transition: all 0.5s ease-in-out 
+	.two
+		display: flex
+		align-items: center
+		justify-content: space-between
+		width: 5vh
+		height: fit-content
+		padding-left: 0 
+		padding-right: 0
+		padding-top: 1vh
+		padding-bottom: 1vh
+	
+			
+				
+@keyframes vibrate
+		0%
+			transform: translateX(5px)
+		30%
+			transform: translateX(-5px)
+		65%
+			transform: translateX(2.5px)
+		85%
+			transform: translateX(-2.5px)
+		100%	
+			transform: translateX(2.5px)
+		
+
+	
+		
+	
+	
+@media only screen and (max-width: 768px) 
+	body
+		min-height: 100vh
+		overflow: hidden
+		
+	.grid
+		height: 70vh !important
+		width: 90vw !important
+		padding: 1vh
+
+		
+		
+		
+		
+		
