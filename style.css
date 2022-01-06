@@ -315,5 +315,7 @@ footer .two {
     width: 90vw !important;
     padding: 1vh;
   }
+  .footer{
+	  bottom: 10px;
 }
 /*# sourceMappingURL=style.css.map */
